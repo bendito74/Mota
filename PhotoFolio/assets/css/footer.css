@@ -1,0 +1,33 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7%;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    font-family: "Space Mono", monospace;
+    border-top: 1px solid black;
+}
+
+footer a, 
+footer p {
+    text-decoration: none;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    color: black;
+    text-transform: uppercase;
+}
+
+footer a:hover {
+    font-weight: bold;
+}
+
+/*Modal contact*/
+.hidden {
+    display: none;
+}
+
+

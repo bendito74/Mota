@@ -18,6 +18,7 @@
             'theme_location' => 'primary', // Emplacement du menu à afficher (vous devez le définir dans functions.php)
             'menu_class'     => 'primary-menu', // Classe CSS pour le menu
             'container'      => false, // Supprimer le conteneur <nav>
+            'items_wrap'     => '<ul id="primary-menu" class="%2$s">%3$s<li class="menu-item contact-button"><a href="#modal-contact">Contact</a></li></ul>', // Ajouter un élément de menu pour le bouton "Contact"
             ));
             ?>
         </nav>
