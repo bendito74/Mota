@@ -40,6 +40,22 @@ footer a:hover {
     top: 20%;
     background-color: white;
     border: 3px solid black;
+    /* Définissez la taille initiale et l'opacité de la modal */
+    transform: scale(0.1);
+    opacity: 0;
+    /* Ajoutez l'animation */
+    animation: modalAppear 0.5s ease-in-out forwards;
+}
+
+@keyframes modalAppear {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .modal img {
@@ -76,7 +92,8 @@ form textarea {
 }
 
 .contact-submit {
-    margin-left: 70px;
+    display: flex;
+    justify-content: center;
     font-family: "Space Mono", monospace;
     font-weight: 400;
     font-size: 12px;
