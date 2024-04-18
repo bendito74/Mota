@@ -51,7 +51,7 @@ span {
 
 .single-contact_left {
     width: 50%;
-    height: 80px;
+    height: 118px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,4 +71,9 @@ span {
     height: 50px;
     border: none;
     margin-right: 10px;
+    cursor: pointer;
+}
+
+.single-contact_left button:hover {
+    font-weight: bold ;
 }

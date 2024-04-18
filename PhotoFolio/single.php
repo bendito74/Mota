@@ -10,7 +10,7 @@ get_header();
         <div class="photo-content_left-vide"></div>
         <div class="photo-content_left-pleine">    
             <h1><?php the_title(); ?></h1>
-            <span class="reading_duration">référence : <?php the_field("reference"); ?></span>
+            <span class="reading_duration">référence : <span id="reference"><?php the_field("reference"); ?></span></span>
             <?php
                 // Récupérer les noms des termes de la taxonomie "categorie" pour le post actuel
                 $format_names = wp_list_pluck(get_the_terms(get_the_ID(), 'categorie'), 'name');
@@ -43,7 +43,7 @@ get_header();
 <div class="single-contact">
     <div class="single-contact_left">
         <p>Cette photo vous intéresse ?</p>
-        <button>Contact</button>
+        <button id="single-contact_left-button">Contact</button>
     </div>
     <div class="single-contact_right">
         <img>

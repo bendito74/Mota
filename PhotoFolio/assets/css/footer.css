@@ -85,10 +85,15 @@ form textarea {
 }
 
 form label input {
-    height: 40px;}
+    height: 40px;
+    font-family: 'poppins';
+    font-size: 14px;
+}
     
 form textarea {
     height: 210px;
+    font-size: 14px;
+    font-family: 'poppins';
 }
 
 .contact-submit {
