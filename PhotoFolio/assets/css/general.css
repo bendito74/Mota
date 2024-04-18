@@ -1,5 +1,6 @@
 body {
     margin: 20px;
-    padding: 0;
+    padding-right: 4vw;
+    padding-left: 4vw;
     font-family: "Space Mono", monospace;
 }

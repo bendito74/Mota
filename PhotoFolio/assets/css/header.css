@@ -5,19 +5,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 11%;
-    padding-right: 14%;
     height: 80px;
 }
 
 .primary-menu {
-    display: -webkit-inline-box;
-    align-items: center;
-    gap: 20%;
+    display: ruby;
     list-style-type: none;
 }
 
 .primary-menu a {
+    padding-left: 30px;
     text-decoration: none;
     font-family: "Space Mono", monospace;
     font-weight: 400;

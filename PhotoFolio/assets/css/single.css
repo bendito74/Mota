@@ -1,0 +1,7 @@
+span {
+    text-transform: uppercase;
+}
+
+#photo-content {
+    display: flex;
+}

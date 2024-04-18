@@ -10,7 +10,7 @@
     <?php wp_body_open(); ?>
     <header>
         <div class="header_title">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="Logo Nathalie Mota">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="Logo Nathalie Mota" title="logo du site : Nathalie Mota">
         </div>
         <nav class="header_nav">
             <?php
