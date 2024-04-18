@@ -37,8 +37,20 @@ get_header();
 	        if( $image_id ) {	
 		    echo wp_get_attachment_image( $image_id, 'full' );
             }
-
         endwhile; ?>
+    </div>
+</div>
+<div class="single-contact">
+    <div class="single-contact_left">
+        <p>Cette photo vous intéresse ?</p>
+        <button>Contact</button>
+    </div>
+    <div class="single-contact_right">
+        <img>
+        <div class="single-contact_right-fleche">
+            <img>
+            <img>
+        </div>
     </div>
 </div>
 <?php
