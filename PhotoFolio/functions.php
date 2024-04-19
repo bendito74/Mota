@@ -23,7 +23,10 @@ add_action('wp_enqueue_scripts', 'photofolio_enqueue_styles');
 function photofolio_enqueue_scripts() {
   // Enregistrer le script JavaScript sans dépendre de jQuery
   wp_enqueue_script('mon-script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0', true);
+  wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'photofolio_enqueue_scripts');
+
+
 
 

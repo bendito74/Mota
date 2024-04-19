@@ -10,7 +10,7 @@ span {
 }
 
 #photo-content h1 {
-    font-size: 7vw;
+    font-size: 6.5vw;
     font-style: italic;
     font-weight: 400;
     text-transform: uppercase;
@@ -49,6 +49,9 @@ span {
 
 /*Deuxieme section*/
 
+.single-contact {
+    display: flex;
+}
 .single-contact_left {
     width: 50%;
     height: 118px;
@@ -76,4 +79,8 @@ span {
 
 .single-contact_left button:hover {
     font-weight: bold ;
+}
+
+.single-contact_right a {
+    text-decoration: none;
 }

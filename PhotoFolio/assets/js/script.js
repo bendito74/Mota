@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.classList.add('hidden');
         }
     });
+
 });
+
+
 
 
 
