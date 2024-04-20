@@ -1,4 +1,4 @@
-/*Première section*/
+/*Première section: Texte et photo d'un article*/
 span {
     text-transform: uppercase;
     font-size: 14px;
@@ -47,7 +47,7 @@ span {
     border-bottom: 1px solid;
 }
 
-/*Deuxieme section*/
+/*Deuxieme section: Bandeau contact et thumbnail*/
 
     /*PARTIE GAUCHE*/
 .single-contact {
@@ -79,10 +79,12 @@ span {
     border: none;
     margin-right: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .single-contact_left button:hover {
-    font-weight: bold ;
+    background-color: black;
+    color: white;
 }
 
     /*PARTIE DROITE*/
@@ -109,6 +111,10 @@ span {
 .post-image.suivant {
     opacity: 0;
 }
+
+/*Troisième section : aimerez aussi*/
+
+
 
 
 
