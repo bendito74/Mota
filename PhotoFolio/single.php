@@ -46,48 +46,59 @@ get_header();
         <button id="single-contact_left-button">Contact</button>
     </div>
     <div class="single-contact_right">
-    <?php
-    // Récupérer la publication précédente
-    $previous_post = get_previous_post();
     
-    if (!empty($previous_post)) : ?>
-        <a href="<?php echo get_permalink($previous_post->ID); ?>">
-            <?php
-            $previous_image_id = get_field('photo', $previous_post->ID);
-            if ($previous_image_id) : 
-                $previous_image_url = wp_get_attachment_image_url($previous_image_id, 'thumbnail');
-                if ($previous_image_url) : ?> 
-                    <img src="<?php echo $previous_image_url; ?>" class="previous-post-image" alt="Image précédente">
-                <?php endif; 
-            endif; ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/precedent.png" class="fleche-precedent" alt="flèche en direction de la gauche" title="précédent">
-        </a>
+        <?php
+        function display_post_image($post, $class) {
+            $post_image_id = get_field('photo', $post->ID);
+            $post_image_url = $post_image_id ? wp_get_attachment_image_url($post_image_id, 'thumbnail') : '';
 
-    <?php endif; ?>
-    
-    <?php
-    // Récupérer la publication suivante
-    $next_post = get_next_post();
-    
-    if (!empty($next_post)) : ?>
-        <a href="<?php echo get_permalink($next_post->ID); ?>">
-            <?php
-            $next_image_id = get_field('photo', $next_post->ID);
-            if ($next_image_id) :
-                $next_image_url = wp_get_attachment_image_url($next_image_id, 'thumbnail');
-                if ($next_image_url) : ?>
-                    <img src="<?php echo $next_image_url; ?>" class="next-post-image" alt="Image suivante">
+            if (!empty($post_image_url)) {
+                echo '<img src="' . $post_image_url . '" class="post-image ' . $class . '" alt="Image de publication">'; 
+            }
+        }
+        function display_post_arrow($arrow_image, $class) {
+            echo '<img src="' . get_template_directory_uri() . '/assets/img/' . $arrow_image . '" class="arrow ' . $class . '" alt="Flèche" title="' . ucfirst($arrow_image) . '">';
+        }
+
+        $previous_post = get_previous_post();
+        $next_post = get_next_post();?>
+
+            <div class="single-contact_right-photo">
+                <?php if (!empty($previous_post)) : ?>
+                    <a href="<?php echo get_permalink($previous_post->ID); ?>">
+                        <?php display_post_image($previous_post, 'precedent')?>
+                    </a>
                 <?php endif;
-            endif; ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/suivant.png" class="fleche-suivant" alt="flèche en direction de la droite" title="suivant"> 
-        </a>
-        
-    <?php endif; ?>
 
+                if (!empty($next_post)) : ?>
+                    <a href="<?php echo get_permalink($next_post->ID); ?>">
+                        <?php display_post_image($next_post, 'suivant'); ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <div class="single-contact_right-arrow">
+                <?php
+                $previous_post = get_previous_post();
+                if (!empty($previous_post)) : ?>
+                    <a href="<?php echo get_permalink($previous_post->ID); ?>">
+                        <?php display_post_arrow('precedent.png', 'previous'); ?>
+                    </a>
+                <?php endif; ?>
+
+                <?php
+                $next_post = get_next_post();
+                if (!empty($next_post)) : ?>
+                    <a href="<?php echo get_permalink($next_post->ID); ?>">
+                        <?php display_post_arrow('suivant.png', 'next'); ?>
+                    </a>
+                <?php endif; ?>
+            </div>
     </div>
+</div>
+<div class="like-more">
+    <p>VOUS AIMEREZ AUSSI</p>
 </div>
 
 
 <?php
-
 get_footer();

@@ -49,8 +49,12 @@ span {
 
 /*Deuxieme section*/
 
+    /*PARTIE GAUCHE*/
 .single-contact {
     display: flex;
+    justify-content: space-between;
+    height: 118px;
+    border-bottom: 1px solid black;
 }
 .single-contact_left {
     width: 50%;
@@ -81,6 +85,34 @@ span {
     font-weight: bold ;
 }
 
+    /*PARTIE DROITE*/
 .single-contact_right a {
     text-decoration: none;
 }
+
+.single-contact_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 118px;
+}
+
+.post-image {
+    width: 80px;
+    height: 70px;
+}
+
+.post-image.precedent {
+    opacity: 0;
+}
+
+.post-image.suivant {
+    opacity: 0;
+}
+
+
+
+
+
+
+
