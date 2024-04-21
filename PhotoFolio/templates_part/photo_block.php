@@ -14,6 +14,9 @@ function display_two_photos($args_photos) {
                 $div_class = ($counter == 0) ? 'photo-block_left' : 'photo-block_right';
                 echo '<div class="' . $div_class . '">';
                 echo wp_get_attachment_image($image_id, 'full');
+                // Récupérer l'URL du post actuel
+                $post_url = get_permalink();
+                echo '<a href="' . esc_url($post_url) . '">'; //ouverture du lien 
                 // Ajout de l'overlay
                 echo '<div class="overlay">';
                 //afficher le logo plein écran
@@ -29,9 +32,10 @@ function display_two_photos($args_photos) {
                 if (!empty($format_names)) {
                 echo '<span class="category-photo">';
                 echo implode(', ', $format_names);
-                echo '<span>';
+                echo '</span>';
                 }
                 echo '</div>';
+                echo '</a>'; //fermeture du lien 
                 echo '</div>';
                 $counter++;
             }
@@ -42,3 +46,4 @@ function display_two_photos($args_photos) {
     endif;
 }
 ?>
+
