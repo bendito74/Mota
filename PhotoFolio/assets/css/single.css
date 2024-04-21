@@ -120,6 +120,29 @@ span {
     margin-bottom: 15vh;
 }
 
+.photo-block {
+    display: flex;
+    gap: 1vw;
+    width: 100%;
+    height: 70vh; /* La section photo-block occupe 100% de la hauteur de la fenêtre */
+    margin-bottom: 15vh;
+}
+
+.photo-block_left,
+.photo-block_right {
+    flex: 1; /* Les divs photo-block_left et photo-block_right prennent chacune la moitié de l'espace disponible en largeur */
+    height: 100%; /* Les divs prennent la hauteur complète de la section */
+    display: flex;
+    justify-content: center; /* Centrer le contenu horizontalement */
+    align-items: center; /* Centrer le contenu verticalement */
+}
+
+.photo-block_left img,
+.photo-block_right img {
+    max-width: 100%; /* Les images ne dépassent pas la largeur des divs */
+    max-height: 100%; /* Les images ne dépassent pas la hauteur des divs */
+    object-fit: fill;
+}
 
 
 
