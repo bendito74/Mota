@@ -98,6 +98,30 @@ get_header();
 <div class="like-more">
     <p>VOUS AIMEREZ AUSSI</p>
 </div>
+<section class="photo-block">
+    <?php 
+        // Récupérer l'ID de la catégorie actuelle
+        $current_category = wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'ids'));
+
+        $args_photos_single = array(
+        'post_type'      => 'photo', // nom de la publication
+        'posts_per_page' => 2, 
+        'orderby'        => 'rand', // photo aléatoire
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'categorie',
+                'field'    => 'id',
+                'terms'    => $current_category,
+            ),
+        ),
+        );
+    
+        get_template_part('/templates_part/photo_block');
+    
+        display_two_photos($args_photos_single);
+ 
+    ?>
+</section>
 
 
 <?php
