@@ -29,6 +29,13 @@ function photofolio_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'photofolio_enqueue_scripts');
 
+//Chargement du script pour single.php
+function enqueue_single_scripts() {
+  if (is_single()) {
+      wp_enqueue_script('single-custom-script', get_template_directory_uri() . '/assets/js/single-custom.js', array('jquery'), null, true);
+  }
+}
+add_action('wp_enqueue_scripts', 'enqueue_single_scripts');
 
 
 
