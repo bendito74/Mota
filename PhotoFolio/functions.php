@@ -16,6 +16,7 @@ function photofolio_enqueue_styles() {
     wp_enqueue_style('footer-style', get_template_directory_uri() . '/assets/css/footer.css', array(), '1.0', 'all');
     wp_enqueue_style('general-style', get_template_directory_uri() . '/assets/css/general.css', array(), '1.0', 'all');
     wp_enqueue_style('single-style', get_template_directory_uri() . '/assets/css/single.css', array(), '1.0', 'all');
+    wp_enqueue_style('index-style', get_template_directory_uri() . '/assets/css/index.css', array(), '1.0', 'all');
 }
 add_action('wp_enqueue_scripts', 'photofolio_enqueue_styles');
 
