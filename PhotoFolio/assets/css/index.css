@@ -31,3 +31,11 @@
     color: transparent;
     -webkit-text-stroke: 3px white;
 }
+
+/*PHOTOBLOCK INDEX*/
+.index-photo.photo-block {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: 23vw;
+    height: 100%;
+}

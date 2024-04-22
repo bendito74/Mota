@@ -142,49 +142,7 @@ span {
     object-fit: fill;
 }
 
-.photo-block_left:hover .overlay,
-.photo-block_right:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Voile noir transparent au survol */
-    opacity: 1;
-}
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Opacité initiale pour le voile */
-    transition: opacity 0.3s ease; /* Animation de transition */
-}
-
-.title-photo {
-    font-size: 14px;
-    font-family: 'poppins';
-    color: white;
-    position: absolute;
-    bottom: 1vw;
-    left: 1vw;
-}
-
-.category-photo {
-    font-size: 14px;
-    font-family: 'space-mono';
-    color: white;
-    position: absolute;
-    bottom: 1vw;
-    right: 1vw;
-}
-
-.pleinEcran-photo {
-    position: absolute;
-    top: 1vw;
-    right: 1vw;
-    width: 2vw;
-}
 
 
 
