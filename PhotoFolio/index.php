@@ -33,7 +33,7 @@ get_header();
         $args_photos_index = array(
         'post_type'      => 'photo', // nom de la publication
         'posts_per_page' => 8, 
-        'order'        => 'ASC'
+        'orderby'        => 'rand'
         );
     
         get_template_part('/templates_part/photo_block');
@@ -43,6 +43,9 @@ get_header();
     ?>
 </section>
 
+<section class="load">
+    <button id="load-more">Charger plus</button>
+</section>
 
 
 <?php

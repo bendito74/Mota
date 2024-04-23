@@ -26,6 +26,40 @@ contactButton.addEventListener('click', function(event) {
     });
 });
 
+//JS POUR AJAX POUR LE BOUTON CHARGER PLUS
+jQuery(function($) {
+    $('#load-more').on('click', function() {
+        var page = 2; // Numéro de page à charger (démarrez à 2 car vous avez déjà chargé la première page)
+        var container = $('.index-photo');
+        console.log(container);
+        var btn = $(this);
+        var data = {
+            'action': 'load_more_photos',
+            'page': page,
+        };
+
+        $.ajax({
+            url: my_ajax_obj.ajaxurl, // Utilisation de la variable ajaxurl définie dans wp_localize_script()
+            type: 'POST',
+            data: data,
+            beforeSend: function() {
+                btn.text('Chargement en cours...');
+            },
+            success: function(response) {
+                if (response) {
+                    container.append(response); // Ajouter les nouvelles photos à la fin de la liste
+                    page++; // Augmenter le numéro de page pour la prochaine requête
+                    btn.text('Charger plus');
+                } else {
+                    btn.text('Plus de photos à charger');
+                    btn.prop('disabled', true);
+                }
+            }
+        });
+    });
+});
+
+
 });
 
 
