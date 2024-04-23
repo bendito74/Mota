@@ -28,12 +28,25 @@ get_header();
     }
 ?>
 
+<section class="filter">
+    <select id="category-filter">
+        <option value="">Toutes les catégories</option>
+        <?php
+        // Récupérer les termes de la taxonomie 'categorie' par exemple
+        $categories = get_terms('categorie');
+        foreach ($categories as $category) {
+            echo '<option value="' . $category->term_id . '">' . $category->name . '</option>';
+        }
+        ?>
+    </select>
+</section>
+
 <section class="index-photo photo-block">
     <?php 
         $args_photos_index = array(
         'post_type'      => 'photo', // nom de la publication
         'posts_per_page' => 8, 
-        'orderby'        => 'rand'
+        'order' => 'DESC'
         );
     
         get_template_part('/templates_part/photo_block');

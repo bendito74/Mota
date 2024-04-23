@@ -58,9 +58,8 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     width: 51vw;
-    height: 90vh;
+    height: 78vh;
     position: absolute;
-    left: 50vh;
     top: 12%;
     background-color: white;
     border: 3px solid black;
