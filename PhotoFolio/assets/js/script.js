@@ -44,14 +44,71 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 btn.hide();
-                $('.index-photo').append(response);
+                $('.index-photo').html(response);
             }
         });
     });
 });
 
+//JS POUR AJAX DES FILTRES
+jQuery(document).ready(function($) {
+    // Gestionnaire d'événements pour les filtres de catégorie
+    $('#category-filter').change(function() {
+        var categoryId = $(this).val();
+        var formatId = $('#format-filter').val();
+        var dateOrder = $('#date-filter').val();
+        filterPhotos(categoryId, formatId, dateOrder);
+    });
+
+    // Gestionnaire d'événements pour les filtres de format
+    $('#format-filter').change(function() {
+        var categoryId = $('#category-filter').val();
+        var formatId = $(this).val();
+        var dateOrder = $('#date-filter').val();
+        filterPhotos(categoryId, formatId, dateOrder);
+    });
+
+    // Gestionnaire d'événements pour le filtre de date
+    $('#date-filter').change(function() {
+        var categoryId = $('#category-filter').val();
+        var formatId = $('#format-filter').val();
+        var dateOrder = $(this).val();
+        filterPhotos(categoryId, formatId, dateOrder);
+    });
+
+    function filterPhotos(categoryId, formatId, dateOrder) {
+        // Vérifie si l'option "formats" est sélectionnée
+        if (formatId === 'all') {
+            // Si oui, définit formatId à vide pour indiquer aucun filtre de format
+            formatId = '';
+        }
+
+        $.ajax({
+            url: my_ajax_obj.ajaxurl,
+            type: 'post',
+            data: {
+                action: 'filter_photos',
+                category_id: categoryId,
+                format_id: formatId,
+                date_order: dateOrder
+            },
+            beforeSend: function() {
+                $('#load-more').hide();
+            },
+            success: function(response) {
+                $('.index-photo').html(response);
+                $('#load-more').hide();
+            }
+        });
+    }
+});
+
 
 });
+
+
+
+
 
 
 

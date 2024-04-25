@@ -64,3 +64,25 @@
     background-color: black;
     color: white;
 }
+
+/*FILTRE*/
+.filter {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12vh;
+    margin-bottom: 5vh;
+}
+
+.filter select {
+    width: 17.5vw;
+    height: 5vh;
+    border-radius: 8px;
+    border: 1.3px solid #B8BBC2;
+    font-family: 'poppins';
+    font-size: 12px;
+    padding-left: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+

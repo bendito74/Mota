@@ -29,16 +29,35 @@ get_header();
 ?>
 
 <section class="filter">
-    <select id="category-filter">
-        <option value="">Toutes les catégories</option>
-        <?php
-        // Récupérer les termes de la taxonomie 'categorie' par exemple
-        $categories = get_terms('categorie');
-        foreach ($categories as $category) {
-            echo '<option value="' . $category->term_id . '">' . $category->name . '</option>';
-        }
-        ?>
-    </select>
+    <div class="select-left">
+        <select id="category-filter">
+            <option selected hidden>CATEGORIES</option>
+            <?php
+            // Récupérer les termes de la taxonomie 'categorie' 
+            $categories = get_terms('categorie');
+            foreach ($categories as $category) {
+                echo '<option value="' . $category->term_id . '">' . $category->name . '</option>';
+            }
+            ?>
+        </select>
+        <select id="format-filter">
+            <option selected hidden>FORMATS</option>
+            <?php
+            // Récupérer les termes de la taxonomie 'format'
+            $format = get_terms('format');
+            foreach ($format as $formats) {
+                echo '<option value="' . $formats->term_id . '">' . $formats->name . '</option>';
+            }
+            ?>
+        </select>
+    </div>
+    <div class="select-right">
+        <select id="date-filter">
+        <option selected hidden>TRIER PAR</option>
+        <option value="desc">A partir des plus récentes</option>
+        <option value="asc">A partir des plus anciennes</option>
+        </select>
+    </div>
 </section>
 
 <section class="index-photo photo-block">
