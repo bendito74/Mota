@@ -22,6 +22,28 @@
             ));
             ?>
         </nav>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/menu-toggle.svg" alt="Trois barres qui symbolise le menu" class="menu-toggle_open">
     </header>
+    
+    <div class="menu-mobile-overlay"> <!-- Overlay pour couvrir la page -->
+            <div class="header-overlay">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="Logo Nathalie Mota" title="logo du site : Nathalie Mota">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/close.svg" alt="Croix de fermeture du menu" class="menu-toggle_close">
+            </div>
+        <div class="menu-mobile">
+        
+            <nav class="menu-mobile_nav">
+                <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'primary', 
+                    'menu_class'     => 'primary-menu', 
+                    'container'      => false, 
+                    'items_wrap'     => '<ul id="primary-menu-mobile" class="%2$s">%3$s<li class="menu-item contact-button"><a href="#modal-contact">Contact</a></li></ul>',
+                ));
+                ?>
+            </nav>
+        </div>
+    </div>
+    
 
     

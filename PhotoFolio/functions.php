@@ -61,56 +61,93 @@ function load_more_photos() {
     exit;
 }
 
-
-//CHARGEMENT DES FILTRES
+//FONCTION POUR LES FILTRES 
 add_action('wp_ajax_filter_photos', 'filter_photos');
 add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');
 
 function filter_photos() {
-    $category_id = isset($_POST['category_id']) ? $_POST['category_id'] : '';
-    $format_id = isset($_POST['format_id']) ? $_POST['format_id'] : '';
-    $date_order = isset($_POST['date_order']) ? $_POST['date_order'] : '';
+    $category = isset($_POST['category']) ? $_POST['category'] : '';
+    $format = isset($_POST['format']) ? $_POST['format'] : '';
+    $order = isset($_POST['order']) ? $_POST['order'] : '';
 
-    $tax_query_relation = 'AND';
-
-    $tax_query = array(
-        'relation' => $tax_query_relation,
-    );
-
-    // Ajoute la clause de taxonomie pour la catégorie si elle est sélectionnée
-    if (!empty($category_id)) {
-        $tax_query[] = array(
-            'taxonomy' => 'categorie',
-            'field'    => 'term_id',
-            'terms'    => $category_id,
+    // Construire une requête pour récupérer les photos filtrées
+    
+    if ($category && $format){
+        $args = array(
+            'post_type'      => 'photo',
+            'posts_per_page' => -1,
+            'orderby'        => 'date',
+            'order'          => $order,
+            'tax_query'      => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'categorie',
+                    'field'    => 'id',
+                    'terms'    => $category
+                ),
+                array(
+                    'taxonomy' => 'format',
+                    'field'    => 'id',
+                    'terms'    => $format
+                ),
+            ),
         );
     }
-
-    // Ajoute la clause de taxonomie pour le format si il est sélectionné
-    if (!empty($format_id)) {
-        $tax_query[] = array(
-            'taxonomy' => 'format',
-            'field'    => 'term_id',
-            'terms'    => $format_id,
+    elseif (!empty($category) || !empty($format)) {
+        $args = array(
+            'post_type'      => 'photo',
+            'posts_per_page' => -1,
+            'orderby'        => 'date',
+            'order'          => $order,
+            'tax_query'      => array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'categorie',
+                    'field'    => 'id',
+                    'terms'    => $category
+                ),
+                array(
+                    'taxonomy' => 'format',
+                    'field'    => 'id',
+                    'terms'    => $format
+                ),
+            ),
         );
     }
-
-    $args_photos_index = array(
-        'post_type'      => 'photo',
-        'posts_per_page' => -1,
-        'tax_query'      => $tax_query,
-        'order'          => ($date_order == 'asc') ? 'ASC' : 'DESC',
-        'orderby'        => 'date',
-    );
 
     ob_start();
     get_template_part('/templates_part/photo_block');
-    display_two_photos($args_photos_index);
-    $output = ob_get_clean();
+    display_two_photos($args);
+    $response = ob_get_clean();
 
-    echo $output;
-    die();
+    echo $response;
+
+    wp_die();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//MASQUER LA BARRE D'ADMMIN WORDPRESS
+add_action('after_setup_theme', 'hide_admin_bar');
+
+function hide_admin_bar() {
+    if (current_user_can('administrator')) {
+        show_admin_bar(false); // Masquer la barre d'administration pour les administrateurs
+    }
+}
+
 
 
 

@@ -50,61 +50,62 @@ jQuery(document).ready(function($) {
     });
 });
 
-//JS POUR AJAX DES FILTRES
+//JS POUR LES FILTRES
 jQuery(document).ready(function($) {
-    // Gestionnaire d'événements pour les filtres de catégorie
-    $('#category-filter').change(function() {
-        var categoryId = $(this).val();
-        var formatId = $('#format-filter').val();
-        var dateOrder = $('#date-filter').val();
-        filterPhotos(categoryId, formatId, dateOrder);
-    });
-
-    // Gestionnaire d'événements pour les filtres de format
-    $('#format-filter').change(function() {
-        var categoryId = $('#category-filter').val();
-        var formatId = $(this).val();
-        var dateOrder = $('#date-filter').val();
-        filterPhotos(categoryId, formatId, dateOrder);
-    });
-
-    // Gestionnaire d'événements pour le filtre de date
-    $('#date-filter').change(function() {
-        var categoryId = $('#category-filter').val();
-        var formatId = $('#format-filter').val();
-        var dateOrder = $(this).val();
-        filterPhotos(categoryId, formatId, dateOrder);
-    });
-
-    function filterPhotos(categoryId, formatId, dateOrder) {
-        // Vérifie si l'option "formats" est sélectionnée
-        if (formatId === 'all') {
-            // Si oui, définit formatId à vide pour indiquer aucun filtre de format
-            formatId = '';
-        }
-
+    $('#category-filter, #format-filter, #date-filter').change(function() {
+        var category = $('#category-filter').val();
+        var format = $('#format-filter').val();
+        
         $.ajax({
             url: my_ajax_obj.ajaxurl,
-            type: 'post',
+            type: 'POST',
             data: {
                 action: 'filter_photos',
-                category_id: categoryId,
-                format_id: formatId,
-                date_order: dateOrder
-            },
-            beforeSend: function() {
-                $('#load-more').hide();
+                category: category,
+                format: format,
             },
             success: function(response) {
-                $('.index-photo').html(response);
                 $('#load-more').hide();
+                $('.index-photo').html(response);
             }
         });
+    });
+});
+
+
+
+
+
+
+
+
+//MENU TOOGLE
+    var menuToggleOpen = document.querySelector('.menu-toggle_open');
+    var menuMobileOverlay = document.querySelector('.menu-mobile-overlay');
+
+    menuToggleOpen.addEventListener('click', function() {
+        menuMobileOverlay.style.display = 'flex'; // Afficher l'overlay
+    });
+
+    menuMobileOverlay.addEventListener('click', function() {
+        menuMobileOverlay.style.display = 'none'; // Cacher l'overlay
+    });
+
+    // Fonction pour cacher l'overlay lorsque la largeur de l'écran est supérieure ou égale à 650 pixels
+    function hideOverlay() {
+        if (window.innerWidth >= 650) {
+            menuMobileOverlay.style.display = 'none';
+        }
     }
+
+    // Appeler la fonction pour cacher l'overlay au chargement de la page
+    hideOverlay();
+
+    // Écouter les changements de taille de l'écran et cacher l'overlay si nécessaire
+    window.addEventListener('resize', hideOverlay);
+
 });
 
-
-});
 
 
 

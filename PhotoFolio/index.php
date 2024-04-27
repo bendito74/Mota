@@ -31,7 +31,7 @@ get_header();
 <section class="filter">
     <div class="select-left">
         <select id="category-filter">
-            <option selected hidden>CATEGORIES</option>
+            <option value="" selected hidden>CATEGORIES</option>
             <?php
             // Récupérer les termes de la taxonomie 'categorie' 
             $categories = get_terms('categorie');
@@ -41,7 +41,7 @@ get_header();
             ?>
         </select>
         <select id="format-filter">
-            <option selected hidden>FORMATS</option>
+            <option value="" selected hidden>FORMATS</option>
             <?php
             // Récupérer les termes de la taxonomie 'format'
             $format = get_terms('format');
