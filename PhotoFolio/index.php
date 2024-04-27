@@ -53,7 +53,7 @@ get_header();
     </div>
     <div class="select-right">
         <select id="date-filter">
-        <option selected hidden>TRIER PAR</option>
+        <option value="" selected hidden>TRIER PAR</option>
         <option value="desc">A partir des plus récentes</option>
         <option value="asc">A partir des plus anciennes</option>
         </select>

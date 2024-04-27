@@ -55,6 +55,7 @@ jQuery(document).ready(function($) {
     $('#category-filter, #format-filter, #date-filter').change(function() {
         var category = $('#category-filter').val();
         var format = $('#format-filter').val();
+        var order = $('#date-filter').val();
         
         $.ajax({
             url: my_ajax_obj.ajaxurl,
@@ -63,6 +64,7 @@ jQuery(document).ready(function($) {
                 action: 'filter_photos',
                 category: category,
                 format: format,
+                order: order,
             },
             success: function(response) {
                 $('#load-more').hide();

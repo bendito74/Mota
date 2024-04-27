@@ -110,10 +110,19 @@ function filter_photos() {
                     'taxonomy' => 'format',
                     'field'    => 'id',
                     'terms'    => $format
-                ),
-            ),
+                )
+            )
         );
     }
+    elseif (empty($category) && empty($format) && !empty($order)) {
+        $args = array(
+            'post_type'      => 'photo',
+            'posts_per_page' => -1,
+            'orderby'        => 'date',
+            'order'          => $order
+        );
+    }
+    
 
     ob_start();
     get_template_part('/templates_part/photo_block');
@@ -124,19 +133,6 @@ function filter_photos() {
 
     wp_die();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //MASQUER LA BARRE D'ADMMIN WORDPRESS
