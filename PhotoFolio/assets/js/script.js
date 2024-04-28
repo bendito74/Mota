@@ -6,8 +6,9 @@ var modal = document.querySelector('.modal-container'); // Correction ici
 var modalOverlay = document.querySelector('.modal-overlay');
 
 // Fonction pour fermer la modal quand on clique en dehors d'elle
+// Fonction pour fermer la modal quand on clique en dehors d'elle
 function closeOnClickOutside(event) {
-    if (!modal.contains(event.target) && event.target !== contactButton && event.target !== singleContactButton) {
+    if (!modal.contains(event.target) && event.target !== contactButton && event.target !== mobileContactButton) {
         modal.classList.add('hidden');
         document.removeEventListener('click', closeOnClickOutside); // Désactive l'écouteur d'événement après la fermeture
     }
@@ -24,6 +25,19 @@ contactButton.addEventListener('click', function(event) {
         modal.classList.add('hidden');
         document.removeEventListener('click', closeOnClickOutside); // Désactive l'écouteur d'événement après la fermeture
     });
+});
+    //MODALE MENU MOBILE 
+// Sélectionnez le bouton "Contact" dans le menu mobile
+var mobileContactButton = document.querySelector('.menu-mobile_nav .contact-button a');
+
+// Fonction pour ouvrir la modale lorsque le bouton "Contact" dans le menu mobile est cliqué
+mobileContactButton.addEventListener('click', function(event) {
+    event.preventDefault(); // Empêche le comportement par défaut du lien
+
+    modal.classList.remove('hidden');
+
+    // Active l'écouteur d'événement pour fermer la modal quand on clique sur l'overlay
+    document.addEventListener('click', closeOnClickOutside);
 });
 
 
