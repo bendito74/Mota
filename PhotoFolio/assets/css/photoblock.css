@@ -27,6 +27,13 @@
     opacity: 1;
 }
 
+.photo-block_left:checked .overlay,
+.photo-block_right:checked .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Voile noir transparent quand on clique sur l'image pour permettre au tablette de le voir aussi*/
+    opacity: 1;
+}
+
+
 .overlay {
     position: absolute;
     top: 0;

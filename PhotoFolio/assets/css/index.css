@@ -83,7 +83,43 @@
     cursor: pointer;
 }
 
+.filter select:hover {
+    background-color: #FFD6D6;
+}
 
+
+@media screen and (max-width: 650px) {
+    .filter {
+        flex-direction: column;
+        gap: 2vw;
+        align-items: center;
+        margin-top: 5vw;
+        margin-bottom: 5vw;
+    }
+    .select-left {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+    .filter select {
+        width: 72vw;
+    }
+    .index-photo.photo-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .photo-block .attachment-full {
+        width: 80vw !important;
+        height: 80vw !important;
+    }
+    .pleinEcran-photo {
+        width: 7vw !important;
+    }
+    .overlay span {
+        font-size: 12px;
+    }
+}
 
 
 

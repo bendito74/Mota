@@ -56,6 +56,7 @@ footer a:hover {
 .modal {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     width: 51vw;
     height: 78vh;
@@ -132,3 +133,21 @@ form textarea {
     height: 50px;
 }
 
+@media screen and (max-width: 650px) {
+    .modal {
+        width: 79vw;
+        height: 123vw;
+    }
+    
+    footer {
+        flex-direction: column;
+        gap: 4vw;
+        height: auto;
+        padding-top: 6vw;
+        padding-bottom: 6vw;
+        
+    }
+    footer p {
+        margin: 0;
+    }
+}

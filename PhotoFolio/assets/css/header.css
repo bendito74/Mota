@@ -60,6 +60,18 @@ header {
         left: 0;
         z-index: 10000;
         background-color: rgba(0, 0, 0, 0.7);
+        animation: slideInRight 0.5s ease forwards;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
     
     .menu-mobile {
@@ -68,14 +80,18 @@ header {
         align-items: center;
         position: absolute;
         top: 0;
-        width: 100%;
-        height: 75vw;
+        width: 100vw;
+        height: 92vw;
         background-color: red;
     }
     
     .menu-toggle_open,
     .menu-toggle_close {
         cursor: pointer;
+    }
+
+    .menu-toggle_close {
+        padding-right: 8vw;
     }
     
     .menu-mobile_nav ul {
@@ -98,15 +114,14 @@ header {
         left: 0;
         top: 0;
         z-index: 99999;
-        width: 100%;
-        height: 10vw;
+        width: 100vw;
+        height: 80px;
         position: absolute;
         background-color: white;
+        padding: 2vw;
     }
     
     .header-overlay img {
-        width: 35vw;
-        height: 2vw;
-        margin-left: 9vw;
+        padding-left: 4vw;
     }
 }

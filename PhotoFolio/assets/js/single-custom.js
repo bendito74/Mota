@@ -50,6 +50,11 @@ arrowPrevious.addEventListener('mouseenter', function() {
     changeOpacity(imgPrecedent, '1');
 });
 
+// Pour les tablettes et les mobiles
+arrowPrevious.addEventListener('touchstart', function() {
+    changeOpacity(imgPrecedent, '1');
+});
+
 arrowPrevious.addEventListener('mouseleave', function() {
     changeOpacity(imgPrecedent, '0');
 });
@@ -57,6 +62,11 @@ arrowPrevious.addEventListener('mouseleave', function() {
 // Gestionnaire d'événement pour arrowNext
 arrowNext.addEventListener('mouseenter', function() {
     changeOpacity(imgSuivant, '1');
+});
+
+// Pour les tablettes et les mobiles
+arrowNext.addEventListener('touchstart', function() {
+    changeOpacity(imgPrecedent, '1');
 });
 
 arrowNext.addEventListener('mouseleave', function() {
