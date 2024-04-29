@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php wp_title('|', true, 'right'); ?></title>
+    <meta name="description" content="LE site de Nathalie Mota. Photagraphe event de renom, qui sait prendre chaques instants avec doigté ! Ce site permet d'avoir un aperçu de son travail, de prendre contact et de commander certaines de ses créations">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
