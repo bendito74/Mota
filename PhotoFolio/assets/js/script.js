@@ -124,24 +124,52 @@ jQuery(document).ready(function($) {
 
 
 //LIGHTBOX 
+    let images = document.querySelectorAll('.pleinEcran-photo');
+    let lightbox = document.querySelector('.lightbox');
+    let lightboxImg = document.querySelector('.lightbox__container img');
+    let lightboxTitle = document.querySelector('.lightbox__title');
+    let lightboxCategory = document.querySelector('.lightbox__category');
+    let prevBtn = document.querySelector('.lightbox__prev');
+    let nextBtn = document.querySelector('.lightbox__next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        let image = images[index];
+        if (image) {
+            let imageUrl = image.getAttribute('data-image-url');
+            let imageTitle = image.getAttribute('data-title');
+            let imageCategory = image.getAttribute('data-category');
+            lightboxImg.setAttribute('src', imageUrl);
+            lightboxTitle.textContent = imageTitle;
+            lightboxCategory.textContent = imageCategory;
+            currentIndex = index;
+        }
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        showImage(currentIndex);
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        showImage(currentIndex);
+    }
+
     document.addEventListener('click', function(event) {
-        // Vérifie si l'élément cliqué a la classe pleinEcran-photo
         if (event.target.classList.contains('pleinEcran-photo')) {
-            let imageUrl = event.target.getAttribute('data-image-url');
-            // Mettre à jour la source de l'image dans la lightbox avec l'URL de l'image cliquée
-            document.querySelector('.lightbox__container img').setAttribute('src', imageUrl);
-            // Afficher la lightbox
-            document.querySelector('.lightbox').style.display = 'block';
+            images = document.querySelectorAll('.pleinEcran-photo'); // Mettre à jour la liste des images
+            let index = Array.from(images).indexOf(event.target);
+            showImage(index);
+            lightbox.style.display = 'block';
         }
 
-        // Vérifie si l'élément cliqué a la classe lightbox__close
         if (event.target.classList.contains('lightbox__close')) {
-            // Cacher la lightbox
-            document.querySelector('.lightbox').style.display = 'none';
+            lightbox.style.display = 'none';
         }
     });
 
-
-    
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
 
 });

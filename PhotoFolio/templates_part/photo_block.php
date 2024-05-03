@@ -18,7 +18,7 @@ function display_two_photos($args_photos) {
                     // Ajout de l'overlay
                     echo '<div class="overlay">';
                         //afficher le logo plein écran
-                        echo '<img src="' . get_template_directory_uri() . '/assets/img/pleinEcran.png" alt="logo représentant un carré dans un rond et servant à agrandir l\'image" class="pleinEcran-photo" data-image-url="' . wp_get_attachment_url($image_id) . '">';
+                        echo '<img src="' . get_template_directory_uri() . '/assets/img/pleinEcran.png" alt="logo représentant un carré dans un rond et servant à agrandir l\'image" class="pleinEcran-photo" data-image-url="' . wp_get_attachment_url($image_id) . '"" data-title="' . get_the_title() . '" data-category="' . implode(', ', wp_list_pluck(get_the_terms(get_the_ID(), 'categorie'), 'name')) . '">';
                         
                         // Récupérer l'URL du post actuel
                         $post_url = get_permalink();
