@@ -133,6 +133,79 @@ form textarea {
     height: 50px;
 }
 
+/*LIGHTBOX*/
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 10;
+    overflow: auto;
+    animation: lightboxIn .5s;
+}
+
+@keyframes lightboxIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.lightbox__next,
+.lightbox__prev {
+    position: fixed;
+    top: 50%;
+    right: 2vw;
+    z-index: 11;
+}
+
+.lightbox__prev {
+    right: auto;
+    left: 2vw;
+}
+
+.lightbox__close {
+    position: fixed;
+    top: 4vw;
+    right: 4vw;
+}
+
+.lightbox__next,
+.lightbox__prev,
+.lightbox__close {
+    cursor: pointer;
+    opacity: .5;
+    transition: .3s;
+}
+.lightbox__next:hover,
+.lightbox__prev:hover,
+.lightbox__close:hover {
+    opacity: 1;
+}
+
+.lightbox__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.lightbox__container img {
+    max-width: 100%;
+    height: auto;
+    animation: lightboxIn .5s;
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width: 650px) {
     .modal {
         width: 79vw;

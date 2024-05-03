@@ -118,18 +118,30 @@ jQuery(document).ready(function($) {
     hideOverlay();
 
     // Écouter les changements de taille de l'écran et cacher l'overlay si nécessaire
-    window.addEventListener('resize', hideOverlay);
+    window.addEventListener('resize', hideOverlay)
+
+
+
+
+//LIGHTBOX 
+    document.addEventListener('click', function(event) {
+        // Vérifie si l'élément cliqué a la classe pleinEcran-photo
+        if (event.target.classList.contains('pleinEcran-photo')) {
+            let imageUrl = event.target.getAttribute('data-image-url');
+            // Mettre à jour la source de l'image dans la lightbox avec l'URL de l'image cliquée
+            document.querySelector('.lightbox__container img').setAttribute('src', imageUrl);
+            // Afficher la lightbox
+            document.querySelector('.lightbox').style.display = 'block';
+        }
+
+        // Vérifie si l'élément cliqué a la classe lightbox__close
+        if (event.target.classList.contains('lightbox__close')) {
+            // Cacher la lightbox
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+    });
+
+
+    
 
 });
-
-
-
-
-
-
-
-
-
-
-
-

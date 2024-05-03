@@ -47,6 +47,7 @@ add_action('wp_enqueue_scripts', 'enqueue_single_scripts');
 //CHARGEMENT AJAX POUR LOAD MORE
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+
 function load_more_photos() {
 
     $args_photos_index = array(
