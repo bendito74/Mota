@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 let images = document.querySelectorAll('.pleinEcran-photo');
 let lightbox = document.querySelector('.lightbox');
 let lightboxImg = document.querySelector('.lightbox__container img');
@@ -45,3 +47,5 @@ document.addEventListener('click', function(event) {
 
 prevBtn.addEventListener('click', showPrev);
 nextBtn.addEventListener('click', showNext);
+
+})
