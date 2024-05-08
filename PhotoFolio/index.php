@@ -14,7 +14,7 @@ get_header();
         foreach ($hero_photo as $post) :
             setup_postdata($post);
             // Récupérer l'URL de l'image à partir du champ ACF 'photo'
-            $image_url = get_field('photo'); // Assurez-vous que 'photo' est le nom de votre champ d'image ACF
+            $image_url = get_field('photo'); 
             ?>
             <section class="hero-header">
                 <div class="hero-content">
@@ -63,7 +63,7 @@ get_header();
 <section class="index-photo photo-block">
     <?php 
         $args_photos_index = array(
-        'post_type'      => 'photo', // nom de la publication
+        'post_type'      => 'photo', 
         'posts_per_page' => 8, 
         'order' => 'DESC'
         );

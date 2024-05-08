@@ -142,6 +142,10 @@ span {
     object-fit: fill;
 }
 
+
+
+
+
 @media screen and (max-width: 650px) {
     #photo-content {
         flex-direction: column-reverse;

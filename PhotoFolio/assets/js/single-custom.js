@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //MODALE DE CONTACT POPUP
 var singleContactButton = document.getElementById("single-contact_left-button");
-var modal = document.querySelector('.modal-container'); // Correction ici
+var modal = document.querySelector('.modal-container'); 
 var modalOverlay = document.querySelector('.modal-overlay');
 var modalContent = document.querySelector('.modal');
-var inputField = modalContent.querySelector('#wp7-reference'); // Correction ici
+var inputField = modalContent.querySelector('#wp7-reference'); 
 var referenceSpan = document.getElementById('reference');
 var referenceValue = referenceSpan ? referenceSpan.textContent : '';
 
@@ -22,7 +22,7 @@ singleContactButton.addEventListener("click", function(event) {
     event.preventDefault(); // Empêche le comportement par défaut du lien
 
     // Préremplir le champ de formulaire
-    inputField.value = referenceValue; // Remplacez "Votre valeur préremplie" par la valeur souhaitée
+    inputField.value = referenceValue; 
 
     modal.classList.remove('hidden');
 
@@ -32,6 +32,9 @@ singleContactButton.addEventListener("click", function(event) {
         document.removeEventListener('click', closeOnClickOutside); // Désactive l'écouteur d'événement après la fermeture
     });
 });
+
+
+
 
 
 //COMPORTEMENT DES PHOTOS ET FLECHES DANS SINGLE.PHP

@@ -25,12 +25,11 @@ footer a:hover {
     font-weight: bold;
 }
 
-/*Modal contact*/
+/*MODALE CONTACT*/
 .hidden {
     display: none !important;
 }
 
-/* Style pour la modal container */
 .modal-container {
     position: fixed;
     top: 0;
@@ -43,7 +42,6 @@ footer a:hover {
     align-items: center;
 }
 
-/* Style pour l'overlay */
 .modal-overlay {
     position: absolute;
     top: 0;
